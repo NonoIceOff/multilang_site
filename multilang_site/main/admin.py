@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Article
 
-# Register your models here.
+# ADD A + BUTTON TO ADD AN ITEM TO THE ADMINISTRATION PANEL
+admin.site.register(Article)

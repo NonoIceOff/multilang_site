@@ -3,7 +3,7 @@
 import os
 import sys
 
-
+# This launches the website
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'multilang_site.settings')
