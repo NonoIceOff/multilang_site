@@ -8,7 +8,6 @@
 5. [Structure du Projet](#structure-du-projet)
 6. [Dépendances](#dépendances)
 7. [Contributions](#contributions)
-8. [Licence](#licence)
 
 ## Introduction
 
