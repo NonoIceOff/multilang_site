@@ -47,7 +47,7 @@ Assurez-vous que vous ayez ajouté des coins dans votre clé d'API sinon cela ne
 ## Utilisation
 - Pour lancer le serveur de développement Django :
 
-
+```py
 python manage.py runserver
 ```
 
@@ -55,7 +55,7 @@ python manage.py runserver
 
 ### Pour ajouter des articles sur le site :
 - Exécutez cette commande pour créer un utilisateur pour la base de donnée, et suivez les instructions.
-```bash
+```py
 py manage.py createsuperuser
 ```    
 - Accedez à http://127.0.0.1:8000/admin en vous connectant.
