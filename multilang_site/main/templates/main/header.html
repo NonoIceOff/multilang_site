@@ -1,0 +1,27 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <!-- LANGUAGES LINKS -->
+    <a href="/en/{{ request.get_full_path|slice:'4:' }}"
+      >{% trans "English" %}</a
+    >
+    |
+    <a href="/fr/{{ request.get_full_path|slice:'4:' }}"
+      >{% trans "Francais" %}</a
+    >
+    |
+
+    <!-- PAGE LINKS -->
+    <br />
+    <a href="/{{ request.LANGUAGE_CODE }}/">{% trans "Home" %}</a>
+    <a href="/{{ request.LANGUAGE_CODE }}/articles">{% trans "Articles" %}</a>
+    <a href="/{{ request.LANGUAGE_CODE }}/search">{% trans "Search" %}</a>
+    <a href="/{{ request.LANGUAGE_CODE }}/chatbot">{% trans "Chatbot" %}</a>
+  </body>
+</html>

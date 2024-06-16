@@ -2,31 +2,26 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{% trans "List of articles" %}</title>
-</head>
-<body>
-
-    <!-- LANGUAGES LINKS -->
-    <a href="/en/{{ request.get_full_path|slice:'4:' }}">{% trans "English" %}</a> |
-    <a href="/fr/{{ request.get_full_path|slice:'4:' }}">{% trans "Français" %}</a> |
-
-    <!-- PAGE LINKS -->
-    <br>
-    <a href="/{{ request.LANGUAGE_CODE }}/">{% trans "Home Page" %}</a>
+  </head>
+  <body>
+    {% include 'main/header.html' %}
 
     <h1>{% trans "List of articles" %}</h1>
 
-
     <ul>
-        {% for article in articles %}
-            <li><a href="{% url 'article_detail' article_id=article.id %}"><h2>{{ article.title }}</h2></a></li>
-        {% empty %}
-            <li>{% trans "No article found" %}</li>
-        {% endfor %}
+      <!-- MAKE A LOOP TO RETRIEVE ALL THE ARTICLES -->
+      {% for article in articles %}
+      <li>
+        <a href="{% url 'article_detail' article_id=article.id %}"
+          ><h2>{{ article.title }}</h2></a
+        >
+      </li>
+      {% empty %}
+      <li>{% trans "No article found" %}</li>
+      {% endfor %}
     </ul>
-
-
-    </body>
+  </body>
 </html>

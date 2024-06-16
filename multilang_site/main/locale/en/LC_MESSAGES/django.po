@@ -21,3 +21,27 @@ msgstr "List of articles"
 
 msgid "Back to Articles"
 msgstr "Back to List of articles"
+
+msgid "Search results"
+msgstr "Search results"
+
+msgid "Search results for"
+msgstr "Search results for"
+
+msgid "No results found for"
+msgstr "No results found for"
+
+msgid "Back to Search Page"
+msgstr "Back to Search Page"
+
+msgid "Site search"
+msgstr "Site search"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Chatbot"
+msgstr "Chatbot"
+
+msgid "Send"
+msgstr "Send"

@@ -22,3 +22,27 @@ msgstr "Liste des articles"
 msgid "Back to Articles"
 msgstr "Retour sur la liste des articles"
 
+msgid "Search results"
+msgstr "Resultats de la recherche"
+
+msgid "Search results for"
+msgstr "Resultats de la recherche pour"
+
+msgid "No results found for"
+msgstr "Aucun resultat trouve pour"
+
+msgid "Back to Search Page"
+msgstr "Retour sur la page de recherche"
+
+msgid "Site search"
+msgstr "Recherche sur le site"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Chatbot"
+msgstr "Messagerie d'aide"
+
+msgid "Send"
+msgstr "Envoyer"
+

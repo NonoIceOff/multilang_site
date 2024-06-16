@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% trans "Site search" %}</title>
+  </head>
+  <body>
+    {% include 'main/header.html' %}
+
+    <h1>{% trans "Site search" %}</h1>
+
+    <!-- FORM WITCH SUBMIT AND SEND THE SEARCH INPUT TO search_result PAGE -->
+    <form method="get" action="{% url 'search_results' %}">
+      <input type="text" name="query" placeholder="Search..." />
+      <button type="submit">{% trans "Search" %}</button>
+    </form>
+  </body>
+</html>

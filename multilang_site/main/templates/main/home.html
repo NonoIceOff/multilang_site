@@ -1,21 +1,16 @@
 {% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% trans "Home Page" %}</title>
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- %trans TRANSLATES THE KEY (Home Page) BY .mo files AND I18N -->
+    <title>{% trans "Home Page" %}</title>
+  </head>
+  <body>
+    <!-- USES THE HEADER WITH NAVIGATION -->
+    {% include 'main/header.html' %}
 
-        <!-- LANGUAGES LINKS -->
-        <a href="/en/{{ request.get_full_path|slice:'4:' }}">{% trans "English" %}</a> |
-        <a href="/fr/{{ request.get_full_path|slice:'4:' }}">{% trans "Français" %}</a> |
-
-        <!-- PAGE LINKS -->
-        <br>
-        <a href="/{{ request.LANGUAGE_CODE }}/articles">{% trans "Articles" %}</a>
-
-        <h1>{% trans "Home Page" %}</h1>
-
-    </body>
+    <h1>{% trans "Home Page" %}</h1>
+  </body>
 </html>

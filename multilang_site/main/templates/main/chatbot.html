@@ -1,0 +1,83 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% trans "Chatbot" %}</title>
+  </head>
+  <body>
+    {% include 'main/header.html' %}
+
+    <h1>{% trans "Chatbot" %}</h1>
+
+    <form id="chat-form" method="post">
+      {% csrf_token %}
+      <label for="message">{% trans "Message" %}:</label>
+      <input type="text" id="message" name="message" />
+      <button type="submit">{% trans "Send" %}</button>
+    </form>
+
+    <div id="chat-history">
+      {% for msg in messages %}
+      <div class="{{ msg.role }}">[{{ msg.role }}] {{ msg.content }}</div>
+      {% endfor %}
+    </div>
+
+    <div id="response">
+      <!-- The chatbot's response -->
+    </div>
+
+    <!-- Loading indicator -->
+    <div id="loading" style="display: none">Loading...</div>
+
+    <script>
+      document
+        .getElementById("chat-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const message = document.getElementById("message").value;
+          const responseDiv = document.getElementById("response");
+          const loadingDiv = document.getElementById("loading");
+          const chatHistoryDiv = document.getElementById("chat-history");
+
+          // Show loading indicator //
+          loadingDiv.style.display = "block";
+          responseDiv.innerText = "";
+
+          fetch('{% url "chatbot" %}', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": document.querySelector(
+                "[name=csrfmiddlewaretoken]"
+              ).value,
+            },
+            body: JSON.stringify({ message: message }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Hide loading indicator //
+              loadingDiv.style.display = "none";
+
+              // Add the user's message to the history //
+              const userMessageDiv = document.createElement("div");
+              userMessageDiv.classList.add("user");
+              userMessageDiv.innerText = message;
+              chatHistoryDiv.appendChild(userMessageDiv);
+
+              // Add the bot's response to the history //
+              const botMessageDiv = document.createElement("div");
+              botMessageDiv.classList.add("bot");
+              botMessageDiv.innerText = data.response;
+              chatHistoryDiv.appendChild(botMessageDiv);
+            })
+            .catch((error) => {
+              // Hide the loading indicator and display an error //
+              loadingDiv.style.display = "none";
+              responseDiv.innerText = "An error occurred. Please try again.";
+            });
+        });
+    </script>
+  </body>
+</html>
