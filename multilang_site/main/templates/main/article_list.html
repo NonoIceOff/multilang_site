@@ -1,21 +1,32 @@
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Articles</title>
+    <title>{% trans "List of articles" %}</title>
 </head>
 <body>
-    <h1>Articles</h1>
+
+    <!-- LANGUAGES LINKS -->
+    <a href="/en/{{ request.get_full_path|slice:'4:' }}">{% trans "English" %}</a> |
+    <a href="/fr/{{ request.get_full_path|slice:'4:' }}">{% trans "Français" %}</a> |
+
+    <!-- PAGE LINKS -->
+    <br>
+    <a href="/{{ request.LANGUAGE_CODE }}/">{% trans "Home Page" %}</a>
+
+    <h1>{% trans "List of articles" %}</h1>
+
+
     <ul>
-        <!--- LOOP THAT DISPLAYS EACH ITEM IN THE LISTE-->
-        <!--- "article" variable defined by articles in the loop, is an object that contains: a title, a content, and a publication date-->
-        {% for article in articles %} 
-            <li>
-                <h2>{{ article.title }}</h2>
-                <p>{{ article.content }}</p>
-                <p><em>Published on {{ article.publication_date }}</em></p>
-            </li>
+        {% for article in articles %}
+            <li><a href="{% url 'article_detail' article_id=article.id %}"><h2>{{ article.title }}</h2></a></li>
+        {% empty %}
+            <li>{% trans "No article found" %}</li>
         {% endfor %}
     </ul>
-</body>
+
+
+    </body>
 </html>

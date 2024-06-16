@@ -1,10 +1,21 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Home</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% trans "Home Page" %}</title>
+    </head>
+    <body>
+
+        <!-- LANGUAGES LINKS -->
+        <a href="/en/{{ request.get_full_path|slice:'4:' }}">{% trans "English" %}</a> |
+        <a href="/fr/{{ request.get_full_path|slice:'4:' }}">{% trans "Français" %}</a> |
+
+        <!-- PAGE LINKS -->
+        <br>
+        <a href="/{{ request.LANGUAGE_CODE }}/articles">{% trans "Articles" %}</a>
+
+        <h1>{% trans "Home Page" %}</h1>
+
+    </body>
 </html>

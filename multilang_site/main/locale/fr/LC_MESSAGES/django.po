@@ -1,0 +1,23 @@
+msgid "Articles"
+msgstr "Articles"
+
+msgid "Published on"
+msgstr "Publie le"
+
+msgid "English"
+msgstr "Anglais"
+
+msgid "Francais"
+msgstr "Francais"
+
+msgid "Home Page"
+msgstr "Page d'accueil"
+
+msgid "No article found"
+msgstr "Pas d'article trouve."
+
+msgid "List of articles"
+msgstr "Liste des articles"
+
+msgid "Back to Articles"
+msgstr "Retour sur la liste des articles"

@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title }}</title>
+</head>
+<body>
+
+    <!-- LANGUAGES LINKS -->
+    <a href="/en/{{ request.get_full_path|slice:'4:' }}">{% trans "English" %}</a> |
+    <a href="/fr/{{ request.get_full_path|slice:'4:' }}">{% trans "Français" %}</a> |
+
+    <!-- PAGE LINKS -->
+    <br>
+    <a href="/{{ request.LANGUAGE_CODE }}/articles">{% trans "List of articles" %}</a>
+
+    <h1>{{ article.title }}</h1>
+
+    <p>{{ article.content }}</p>
+    <p>{% trans "Published on" %}: {{ article.publication_date }}</p>
+
+
+    <a href="/{{ request.LANGUAGE_CODE }}/articles">{% trans "Back to Articles" %}</a>
+
+
+</body>
+</html>
